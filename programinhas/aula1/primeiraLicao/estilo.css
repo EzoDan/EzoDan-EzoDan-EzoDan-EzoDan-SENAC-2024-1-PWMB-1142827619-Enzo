@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: medium;
+
+ }
+
+div#valeLua {
+    border:1px solid purple;
+    width:750px;
+    margin: 10px auto;
+    padding:4px;
+    text-align:middle;
+    position: relative;
+  }
+  div#cajon {
+    border: 1px solid red;
+    width: 700px;
+    height:100px;
+    margin: 10px auto;
+    text-align: center;
+  }
+  div#menu {
+    border: 2px solid rgb(0, 128, 92);
+    width: 50px;
+    height: 30px;
+  }
+  div#titulo {
+    border:2px solid blue;
+    width:400px;
+    font-size: large;
+    margin:10px 0 10px 175px;
+    min-height:10px;
+    margin: 20px auto;
+    text-align:center;
+    
+  }
+  div#links {
+    position: bottom;
+    bottom: 100px;
+    right:10px;
+    border:1px solid green;
+    width:200px;
+    margin: 10px auto;
+    height:70px;
+  }
+  
+  
+ 
