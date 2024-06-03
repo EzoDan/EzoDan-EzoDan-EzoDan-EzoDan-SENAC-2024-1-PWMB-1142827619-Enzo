@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Consultoria - Plamaforta de Tarmekin Tigital</title>
+    <link rel="stylesheet" href="consultaStyle.css">
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <div class="container">
+            <img src="/importante.png" alt="">
+            <h1 class="logo">Plamaforta</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="serviços.html">Serviços</a></li>
+                <li><a href="contatos.html">Contato</a></li>
+                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Baixe nosso app</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <!-- Seção de Agendamento de Consultoria -->
+        <section class="consulting">
+            <div class="container">
+                <h2>Agendar Consultoria</h2>
+                <p>Preencha o formulário abaixo para agendar uma consultoria com nossa equipe.</p>
+                <form action="#" method="get">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Telefone:</label>
+                    <input type="text" id="phone" name="phone">
+
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+
+                    <button type="submit" class="btn" onclick="guardar()">Agendar Consultoria</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Plamaforta de Tarmekin Tigital</p>
+        </div>
+    </footer>
+</body>
+<script>
+    function guardar(){
+        var nome = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var message = document.getElementById("message").value;
+        
+        var consulta = {nome,email,phone,message};
+
+        consulta_json = JSON.stringify(consulta);
+
+        localStorage.setItem("consulta",consulta_json);
+        
+        alert("pedido de consulta enviado,aguarde resposta em seu email");
+
+    }
+</script>
+</html>

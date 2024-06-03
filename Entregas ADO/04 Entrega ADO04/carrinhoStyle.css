@@ -1,0 +1,30 @@
+body{
+    background-color: darkgray;
+}
+
+.container {
+    padding: 20px;
+    background-color: #88aacdb0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.acoes {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.acoes button {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #227202;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.acoes button:hover {
+    background-color: #21887e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.89);
+}

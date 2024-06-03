@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 1</title>
+</head>
+
+<body>
+    <h1 class="titulo">Verificador de idade</h1>
+    <div class="principal">
+        <form>
+            <label>
+                Ano de nascimento:
+                <input type="number" name="anoNascimento" required min="1900" max="2024">
+            </label>
+            <div>
+                Gênero:
+                <label>
+                    <input type="radio" name="sexo" value="Masculino" required>
+                    Masculino
+                </label>
+                <label>
+                    <input type="radio" name="sexo" value="Feminino" required>
+                    Feminino
+                </label>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+        <div class="imagem">
+            <div id="info"></div>
+            <div id="foto"></div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #0167d5;
+        }
+
+        .titulo {
+            text-align: center;
+        }
+
+        .principal {
+            background-color: #fff;
+            width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 1em 0;
+            gap: 10px;
+        }
+
+        input[type="submit"] {
+            width: fit-content;
+            padding: 0.25em 0.5em;
+        }
+
+        .imagem {
+            text-align: center;
+            border: 10px;
+        }
+    </style>
+
+    <script>
+        const anoAtual = new Date().getFullYear();
+        const form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const anoNascimento = formData.get('anoNascimento');
+            const sexo = formData.get('sexo');
+            const idade = anoAtual - anoNascimento;
+
+            const infoHTML = document.querySelector('#info');
+            infoHTML.innerText = `Gênero: ${sexo}, com ${idade} anos`;
+
+            const fotoHTML = document.querySelector('#foto');
+            const img = document.createElement('img');
+            img.height = 256
+            img.width = 256
+            img.style = "border-radius: 50%; object-fit: cover;align-self: center;"
+            if (sexo == 'Masculino') {
+                if (idade >= 0 && idade <= 12) img.src = 'https://pbs.twimg.com/media/EC-1aenWwAAppbW.jpg';
+                else if (idade <= 18) img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs0rbnvuTLu9baCMtPAwiLcI2uwKqXhTJu9ICfxo_9Tu_aWP8TMWEN0AxUxxkt3UeM4Ac&usqp=CAU';
+                else if (idade <= 59) img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScN9ChyvbP4jCe3Af61pVqn-6NJAkhda-auA&usqp=CAU';
+                else img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2AV4uwHC0os-90sg9Bm38iI-nonhm3SCKGA&usqp=CAU';
+            } else {
+                if (idade >= 0 && idade <= 12) img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh6D5GR8cvQTdw4aeOLNgEtZWESn2qzUBSzA&usqp=CAU';
+                else if (idade <= 18) img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPPxIkq6GtZ6O_HjyIQpEsLg4uDcFRYHucew&usqp=CAU';
+                else if (idade <= 59) img.src = 'https://encrypted-tbn0.gstatic.com/imidades?q=tbn:ANd9GcQ3xgPhfdUv3n8ku9Dm2yS01bRB2rp5SjVfcg&usqp=CAU';
+                else img.src = 'https://www.meme-arsenal.com/memes/ad4045f7ebd86afac3786d4ff0df8364.jpg';
+            }
+            fotoHTML.replaceChildren(img);
+        }
+    </script>
+
+</body>
+
+</html>
